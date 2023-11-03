@@ -6,6 +6,7 @@ const fruits = {
         fiber: 2.4,
         vitaminC: 14,
         vitaminA: 1,
+        sugar: 10.4,
     },
     banana: {
         name: "Banana",
@@ -14,6 +15,7 @@ const fruits = {
         fiber: 2.6,
         vitaminC: 10,
         vitaminB6: 20,
+        sugar: 12.2,
     },
     orange: {
         name: "Orange",
@@ -21,6 +23,7 @@ const fruits = {
         carbohydrates: 8.2,
         fiber: 2.4,
         vitaminC: 89,
+        sugar: 8.2,
     },
     grape: {
         name: "Grape",
@@ -28,6 +31,7 @@ const fruits = {
         carbohydrates: 18,
         fiber: 0.9,
         vitaminC: 3.2,
+        sugar: 15.5,
     },
     strawberry: {
         name: "Strawberry",
@@ -35,6 +39,7 @@ const fruits = {
         carbohydrates: 7.7,
         fiber: 2,
         vitaminC: 58.8,
+        sugar: 4.9,
     },
     pear: {
         name: "Pear",
@@ -42,6 +47,7 @@ const fruits = {
         carbohydrates: 15.5,
         fiber: 3.1,
         vitaminC: 4.2,
+        sugar: 9.8,
     },
     pineapple: {
         name: "Pineapple",
@@ -49,6 +55,7 @@ const fruits = {
         carbohydrates: 13.1,
         fiber: 1.4,
         vitaminC: 47.8,
+        sugar: 9.9,
     },
     watermelon: {
         name: "Watermelon",
@@ -56,6 +63,7 @@ const fruits = {
         carbohydrates: 7.6,
         fiber: 0.4,
         vitaminC: 8.1,
+        sugar: 6.2,
     },
     mango: {
         name: "Mango",
@@ -63,6 +71,7 @@ const fruits = {
         carbohydrates: 15,
         fiber: 1.6,
         vitaminC: 60.1,
+        sugar: 14.8,
     },
     kiwi: {
         name: "Kiwi",
@@ -70,6 +79,7 @@ const fruits = {
         carbohydrates: 14.9,
         fiber: 3,
         vitaminC: 92.7,
+        sugar: 9.1,
     },
     cherry: {
         name: "Cherry",
@@ -77,6 +87,7 @@ const fruits = {
         carbohydrates: 12.2,
         fiber: 1.6,
         vitaminC: 12,
+        sugar: 8.9,
     },
     lemon: {
         name: "Lemon",
@@ -84,6 +95,7 @@ const fruits = {
         carbohydrates: 9.3,
         fiber: 2.8,
         vitaminC: 88.8,
+        sugar: 2.5,
     },
     raspberry: {
         name: "Raspberry",
@@ -91,6 +103,7 @@ const fruits = {
         carbohydrates: 11.9,
         fiber: 6.5,
         vitaminC: 26.2,
+        sugar: 4.4,
     },
     blueberry: {
         name: "Blueberry",
@@ -98,6 +111,7 @@ const fruits = {
         carbohydrates: 7.7,
         fiber: 2.4,
         vitaminC: 9.7,
+        sugar: 5.4,
     },
     blackberry: {
         name: "Blackberry",
@@ -105,6 +119,7 @@ const fruits = {
         carbohydrates: 9,
         fiber: 5.3,
         vitaminC: 23,
+        sugar: 4.9,
     },
     peach: {
         name: "Peach",
@@ -112,6 +127,7 @@ const fruits = {
         carbohydrates: 9.5,
         fiber: 1.5,
         vitaminC: 6.6,
+        sugar: 8.4,
     },
     plum: {
         name: "Plum",
@@ -119,6 +135,7 @@ const fruits = {
         carbohydrates: 11.4,
         fiber: 1.4,
         vitaminC: 9.5,
+        sugar: 9.9,
     },
     apricot: {
         name: "Apricot",
@@ -126,6 +143,7 @@ const fruits = {
         carbohydrates: 11.1,
         fiber: 2,
         vitaminC: 10.1,
+        sugar: 9.2,
     },
     pomegranate: {
         name: "Pomegranate",
@@ -133,6 +151,7 @@ const fruits = {
         carbohydrates: 18.7,
         fiber: 4.0,
         vitaminC: 10.2,
+        sugar: 9.2,
     },
     guava: {
         name: "Guava",
@@ -140,8 +159,10 @@ const fruits = {
         carbohydrates: 14,
         fiber: 9,
         vitaminC: 228,
-    }
+        sugar: 9.2,
+    },
 };
+
 
 
 const nutrients = {
@@ -168,6 +189,10 @@ const nutrients = {
     vitaminB6: {
         max: 280,
         min: 14,
+    },
+    sugar: {
+        max: 100,
+        min: 5,
     },
 };
 
