@@ -341,7 +341,16 @@ function calculateScore() {
         }
     }
 
-    console.log(totalHealth);
+    updateHealthBar(totalHealth);
 
-    
 }
+
+function updateHealthBar(totalHealth) {
+    var healthBar = document.querySelector('.healthbar progress');
+    var h2Element = document.querySelector('.healthbar h2');
+    healthBar.value = totalHealth;
+    healthBar.max = Object.keys(nutrients).length;
+    h2Element.textContent = `Health meter (${totalHealth}/${Object.keys(nutrients).length})`;
+}
+    
+calculateScore();
