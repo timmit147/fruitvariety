@@ -232,7 +232,12 @@ function showFruitDetails(fruit) {
     // Set the selected fruit
     selectedFruit = fruit;
     var fruitAmountInput = document.getElementById("fruit-amount");
-    fruitAmountInput.value = user[selectedFruit] ? user[selectedFruit].amount : 0;
+    if(user[selectedFruit.name]){
+        fruitAmountInput.value = user[selectedFruit.name].amount;
+    }
+    else{
+        fruitAmountInput.value = 0;
+    }
     }
 
 showFruits(fruits);
@@ -285,7 +290,6 @@ document.addEventListener("DOMContentLoaded", function() {
     
 
     function increaseAmount() {
-        console.log(user);
         if (selectedFruit) {
             if (user[selectedFruit.name]){
                 user[selectedFruit.name].amount = user[selectedFruit.name].amount +1;
