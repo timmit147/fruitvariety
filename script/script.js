@@ -213,6 +213,11 @@ function showFruits(fruits) {
 
             fruitContainer.addEventListener('click', function() {
                 showFruitDetails(fruit);
+                const allFruitContainers = document.querySelectorAll('.fruit');
+                allFruitContainers.forEach((container) => {
+                    container.classList.remove('selected');
+                });
+                fruitContainer.classList.add('selected');
             });
 
             fruitDiv.appendChild(fruitContainer);
@@ -245,7 +250,6 @@ function showFruitDetails(fruit) {
     // Set the selected fruit
     selectedFruit = fruit;
     document.getElementById("fruit-amount").value = selectedFruit.amount;
-    
 }
 
 showFruits(fruits);
@@ -310,3 +314,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
 });
 
+
+const firstFruitContainer = document.querySelector('.fruit');
+if (firstFruitContainer) {
+    firstFruitContainer.classList.add('selected');
+}

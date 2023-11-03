@@ -82,6 +82,11 @@ body > *{
     scroll-snap-align: start;
 }
 
+.fruits-block .selected p {
+    font-weight: 900;
+}
+
+
 .fruits-block .fruit p {
     text-align: center;
     margin: 0px;
