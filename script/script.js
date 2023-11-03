@@ -286,6 +286,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         user[selectedFruit.name].amount = user[selectedFruit.name].amount - 1;
         amountInput.value = selectedFruit.amount = user[selectedFruit.name].amount;
+        calculateScore();
     }
     
 
@@ -301,6 +302,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
             amountInput.value = selectedFruit.amount = user[selectedFruit.name].amount;
         }
+        calculateScore();
     }
     
 });
@@ -309,4 +311,28 @@ document.addEventListener("DOMContentLoaded", function() {
 const firstFruitContainer = document.querySelector('.fruit');
 if (firstFruitContainer) {
     firstFruitContainer.classList.add('selected');
+}
+
+
+
+function calculateScore() {
+    const totalValues = {};
+
+    for (const fruitName in user) {
+        if (user.hasOwnProperty(fruitName)) {
+            const fruit = user[fruitName];
+            for (const propertyName in fruit) {
+                if (fruit.hasOwnProperty(propertyName) && typeof fruit[propertyName] === 'number' && propertyName !== 'name' && propertyName !== 'amount') {
+                    if (!totalValues[propertyName]) {
+                        totalValues[propertyName] = 0;
+                    }
+                    totalValues[propertyName] += fruit[propertyName] * fruit.amount;
+                }
+            }
+        }
+    }
+
+    for (const propertyName in totalValues) {
+        console.log(`${propertyName}: ${totalValues[propertyName]}`);
+    }
 }
