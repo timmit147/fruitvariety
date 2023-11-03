@@ -1,10 +1,13 @@
 body{
     display: flex;
     flex-direction: column;
-    gap: 8px;
-    margin: 0px auto;
+    gap: 16px;
     max-width: 1080px;
+    width: 100vw;
+    height: 100vh;    
+    margin: 0px;
     padding: 0px 40px;
+    box-sizing: border-box;
 }
 
 body > *{
@@ -15,13 +18,13 @@ body > *{
     width: 100%;
 }
 
-.logo{
+.logo-block{
     max-width: 150px;
     padding: 40px 0px;
     align-self: center;
 }
 
-.search {
+.search-block {
     display: flex;
     align-items: center;
     position: relative;
@@ -29,7 +32,7 @@ body > *{
     max-width: 400px;
 }
 
-.search .search-icon {
+.search-block .search-icon {
     width: 20px; 
     height: 20px;
     left: 8px;
@@ -37,14 +40,14 @@ body > *{
     pointer-events: none;
 }
 
-.search .info-icon {
+.search-block .info-icon {
     width: 20px; 
     height: 20px;
     position: absolute;
     right: 8px;
 }
 
-.search input {
+.search-block input {
     flex: 1; 
     padding: 10px;
     padding-left: 30px;
@@ -52,6 +55,35 @@ body > *{
     width: 100%;
 }
 
-.search input::placeholder{
+.search-block input::placeholder{
     color: black;
+}
+
+
+.fruits-block {
+    display: flex;
+    gap: 8px;
+    overflow: scroll;
+}
+
+.fruits-block .fruit {
+    border: 1px solid;
+    padding: 8px;
+    width: 100%;
+    min-width: 100px;
+    max-width: 100px;
+    aspect-ratio: 1/1;
+    text-align-last: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.fruits-block .fruit p {
+    text-align: center;
+    margin: 0px;
+}
+
+.fruits-block .fruit img {
+    width: 100%;
 }
