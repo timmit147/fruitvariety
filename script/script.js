@@ -331,8 +331,17 @@ function calculateScore() {
             }
         }
     }
+    let totalHealth = 0;
 
     for (const propertyName in totalValues) {
-        console.log(`${propertyName}: ${totalValues[propertyName]}`);
+        // console.log(`${propertyName}: ${totalValues[propertyName]}`);
+
+        if(nutrients[propertyName].max > totalValues[propertyName] && nutrients[propertyName].min < totalValues[propertyName]){
+            totalHealth = totalHealth + 1;
+        }
     }
+
+    console.log(totalHealth);
+
+    
 }
