@@ -21,6 +21,11 @@ body > *{
     width: 100%;
 }
 
+h2{
+    font-size: 20px;
+    font-weight: 900;
+}
+
 .logo-block{
     max-width: 150px;
 }
@@ -136,3 +141,28 @@ body > *{
     height: 100%;
     aspect-ratio: 1/1;
 }
+
+.healthbar {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.healthbar h2{
+    margin: 0px;
+}
+
+.healthbar progress{
+    width: 100%;
+    border-radius: 0;
+    background-color: #ddd; /* Background color when not filled */
+}
+
+.healthbar progress::-webkit-progress-bar {
+    background-color: #ddd; /* Background color when not filled in Webkit browsers */
+}
+
+.healthbar progress::-webkit-progress-value {
+    background-color: #1B8700; /* Filled progress bar color in Webkit browsers */
+}
+
