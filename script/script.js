@@ -183,7 +183,6 @@ function showFruits(fruits) {
             fruitContainer.classList.add('fruit');
 
             const fruitImage = document.createElement('img');
-
             fruitImage.src = `images/fruits/${fruit.name.toLowerCase()}.png`;
 
             const fruitElement = document.createElement('p');
@@ -192,13 +191,41 @@ function showFruits(fruits) {
             fruitContainer.appendChild(fruitImage);
             fruitContainer.appendChild(fruitElement);
 
+            fruitContainer.addEventListener('click', function() {
+                showFruitDetails(fruit);
+            });
+
             fruitDiv.appendChild(fruitContainer);
         }
     }
 }
 
+function showFruitDetails(fruit) {
+    const detailDiv = document.querySelector('.detail-block');
+    detailDiv.innerHTML = ''; // Clear previous details
+
+    const detailName = document.createElement('h2');
+    detailName.textContent = fruit.name;
+
+    const detailList = document.createElement('ul');
+    for (const nutrient in fruit) {
+        if (nutrient !== 'name') {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${nutrient}: ${fruit[nutrient]}`;
+            detailList.appendChild(listItem);
+        }
+    }
+
+    detailDiv.appendChild(detailName);
+    detailDiv.appendChild(detailList);
+}
+
 showFruits(fruits);
 
+// Show details of the first fruit by default
+const firstFruitName = Object.keys(fruits)[0];
+const firstFruit = fruits[firstFruitName];
+showFruitDetails(firstFruit);
 
 const searchInput = document.querySelector('.search-block input');
 
@@ -211,7 +238,7 @@ searchInput.addEventListener('input', function() {
     }, {});
 
     const fruitDiv = document.querySelector('.fruits-block');
-    fruitDiv.innerHTML = ''; 
+    fruitDiv.innerHTML = '';
 
     showFruits(filteredFruits);
 });
