@@ -6,6 +6,7 @@ const fruits = {
         fiber: 2.4,
         vitaminC: 14,
         vitaminA: 1,
+        amount: 0,
     },
     banana: {
         name: "Banana",
@@ -14,6 +15,7 @@ const fruits = {
         fiber: 2.6,
         vitaminC: 10,
         vitaminB6: 20,
+        amount: 0,
     },
     orange: {
         name: "Orange",
@@ -21,6 +23,7 @@ const fruits = {
         carbohydrates: 8.2,
         fiber: 2.4,
         vitaminC: 89,
+        amount: 0,
     },
     grape: {
         name: "Grape",
@@ -28,6 +31,7 @@ const fruits = {
         carbohydrates: 18,
         fiber: 0.9,
         vitaminC: 3.2,
+        amount: 0,
     },
     strawberry: {
         name: "Strawberry",
@@ -35,6 +39,7 @@ const fruits = {
         carbohydrates: 7.7,
         fiber: 2,
         vitaminC: 58.8,
+        amount: 0,
     },
     pear: {
         name: "Pear",
@@ -42,6 +47,7 @@ const fruits = {
         carbohydrates: 15.5,
         fiber: 3.1,
         vitaminC: 4.2,
+        amount: 0,
     },
     pineapple: {
         name: "Pineapple",
@@ -49,6 +55,7 @@ const fruits = {
         carbohydrates: 13.1,
         fiber: 1.4,
         vitaminC: 47.8,
+        amount: 0,
     },
     watermelon: {
         name: "Watermelon",
@@ -56,6 +63,7 @@ const fruits = {
         carbohydrates: 7.6,
         fiber: 0.4,
         vitaminC: 8.1,
+        amount: 0,
     },
     mango: {
         name: "Mango",
@@ -63,6 +71,7 @@ const fruits = {
         carbohydrates: 15,
         fiber: 1.6,
         vitaminC: 60.1,
+        amount: 0,
     },
     kiwi: {
         name: "Kiwi",
@@ -70,6 +79,7 @@ const fruits = {
         carbohydrates: 14.9,
         fiber: 3,
         vitaminC: 92.7,
+        amount: 0,
     },
     cherry: {
         name: "Cherry",
@@ -77,6 +87,7 @@ const fruits = {
         carbohydrates: 12.2,
         fiber: 1.6,
         vitaminC: 12,
+        amount: 0,
     },
     lemon: {
         name: "Lemon",
@@ -84,6 +95,7 @@ const fruits = {
         carbohydrates: 9.3,
         fiber: 2.8,
         vitaminC: 88.8,
+        amount: 0,
     },
     raspberry: {
         name: "Raspberry",
@@ -91,6 +103,7 @@ const fruits = {
         carbohydrates: 11.9,
         fiber: 6.5,
         vitaminC: 26.2,
+        amount: 0,
     },
     blueberry: {
         name: "Blueberry",
@@ -98,6 +111,7 @@ const fruits = {
         carbohydrates: 7.7,
         fiber: 2.4,
         vitaminC: 9.7,
+        amount: 0,
     },
     blackberry: {
         name: "Blackberry",
@@ -105,6 +119,7 @@ const fruits = {
         carbohydrates: 9,
         fiber: 5.3,
         vitaminC: 23,
+        amount: 0,
     },
     peach: {
         name: "Peach",
@@ -112,6 +127,7 @@ const fruits = {
         carbohydrates: 9.5,
         fiber: 1.5,
         vitaminC: 6.6,
+        amount: 0,
     },
     plum: {
         name: "Plum",
@@ -119,6 +135,7 @@ const fruits = {
         carbohydrates: 11.4,
         fiber: 1.4,
         vitaminC: 9.5,
+        amount: 0,
     },
     apricot: {
         name: "Apricot",
@@ -126,6 +143,7 @@ const fruits = {
         carbohydrates: 11.1,
         fiber: 2,
         vitaminC: 10.1,
+        amount: 0,
     },
     pomegranate: {
         name: "Pomegranate",
@@ -133,6 +151,7 @@ const fruits = {
         carbohydrates: 18.7,
         fiber: 4.0,
         vitaminC: 10.2,
+        amount: 0,
     },
     guava: {
         name: "Guava",
@@ -140,6 +159,7 @@ const fruits = {
         carbohydrates: 14,
         fiber: 9,
         vitaminC: 228,
+        amount: 0,
     }
 };
 
@@ -200,9 +220,12 @@ function showFruits(fruits) {
     }
 }
 
+let selectedFruit = null; // Variable to store the selected fruit
+
+
 function showFruitDetails(fruit) {
     const detailDiv = document.querySelector('.detail-block');
-    detailDiv.innerHTML = ''; // Clear previous details
+    detailDiv.innerHTML = '';
 
     const detailName = document.createElement('h2');
     detailName.textContent = fruit.name;
@@ -218,6 +241,11 @@ function showFruitDetails(fruit) {
 
     detailDiv.appendChild(detailName);
     detailDiv.appendChild(detailList);
+
+    // Set the selected fruit
+    selectedFruit = fruit;
+    document.getElementById("fruit-amount").value = selectedFruit.amount;
+    
 }
 
 showFruits(fruits);
@@ -242,3 +270,43 @@ searchInput.addEventListener('input', function() {
 
     showFruits(filteredFruits);
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const decreaseButton = document.getElementById("decrease-amount");
+        const increaseButton = document.getElementById("increase-amount");
+        const amountInput = document.getElementById("fruit-amount");
+
+    decreaseButton.addEventListener("click", function() {
+        decreaseAmount();
+    });
+
+    increaseButton.addEventListener("click", function() {
+        increaseAmount();
+    });
+
+    function decreaseAmount() {
+        if (selectedFruit) {
+            if (selectedFruit.amount && selectedFruit.amount > 0) {
+                selectedFruit.amount--;
+            } else {
+                selectedFruit.amount = 0;
+            }
+            amountInput.value = selectedFruit.amount;
+        }
+    }
+    
+
+    function increaseAmount() {
+        if (selectedFruit) {
+            if (selectedFruit.amount) {
+                selectedFruit.amount++;
+            } else {
+                selectedFruit.amount = 1;
+            }
+            amountInput.value = selectedFruit.amount;
+        }
+    }
+    
+});
+

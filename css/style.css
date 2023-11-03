@@ -10,11 +10,14 @@ body{
     box-sizing: border-box;
 }
 
-body > *{
-    box-sizing: border-box;
+*{
     font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 16px;
+}
+
+body > *{
+    box-sizing: border-box;
     width: 100%;
 }
 
@@ -100,6 +103,8 @@ body > *{
 
 .detail-block h2{
     margin: 0px;
+    font-weight: 900;
+    font-size: 20px;
 }
 
 .detail-block ul{
@@ -107,3 +112,24 @@ body > *{
     margin: 0px;
 }
 
+
+.amount-block {
+    display: flex;
+    gap: 4px;
+}
+
+.amount-block input{
+    border: 1px solid;
+    padding: 8px;
+    width: inherit;
+    font-weight: 900;
+}
+
+.amount-block button{
+    background-color: white;
+    border: 1px solid;
+    font-weight: 900;
+    padding: 4px;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
